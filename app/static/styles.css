@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+/* colors used:
+pastel yellow: #ffeaa7
+dark yellow: #e0c97f
+bluish green: #00575f
+pastel light blue: #bfecf8
+pastel green (tick): #77DD77
+pastel red (cross): #e74c3c
+
+
+
+
+/* General styling */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #ffeaa7; /* Updated to light pastel yellow */
+    color: #00575f; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Applying the font to all header elements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "DM Serif Display", serif; /* Fallback to sans-serif */
+}
+
+.todo-header h1 {
+    color: black;
+    font-size: 50px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.todo-header h2 {
+    color: #00575f ;
+    font-size: 40px;
+    padding-top: 0px;
+    margin-top: 0px;
+    transition: transform 0.3 ease;
+}
+
+.todo-header h2:hover {
+    color: #00575f ;
+    font-size: 40px;
+    padding-top: 0px;
+    margin-top: 0px;
+    transform: scale(1.1);
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffeaa7; /* Updated to light pastel yellow */
+    color: #00575f;
+    border: 2px solid #e0c97f; /* Darker yellow for the border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Header */
+.todo-header {
+    text-align: center;
+    padding: 20px 0;
+    color: #6c757d;
+}
+
+.todo-header img {
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+.todo-header img:hover {
+    transform: scale(1.2);
+}
+
+
+/* Body */
+.todo-body {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.todo-input {
+    width: 500px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    transition: width 0.3s ease, height 0.3s ease; /* Smooth transition if resizing */
+    padding: 10px;
+    border: 5px solid #bfecf8;
+    border-radius: 20px;
+    font-size: 1em;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Placeholder styling */
+.todo-input::placeholder {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #00575f; /* Adjust color as needed */
+    font-size: 16px; /* Adjust size as needed */
+    opacity: 1; /* Ensures full opacity */
+}
+
+.todo-input::before{
+    background: #bfecf8;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+.todo-input:hover::before{
+    transform: scale(1.1);
+  box-shadow: 0 0 15px #bfecf8;
+}
+
+.todo-input:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon */
+    
+   
+  box-shadow: 0px 5px 5px #bfecf8;
+  text-shadow: 0 0 10px #ffeaa7;
+  
+}
+
+
+img#AddUpdateClick {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Task list styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Allows rounding the edges */
+    border-radius: 5px; /* Adjust as needed for desired rounding */
+    overflow: hidden; /* Clips any overflow, so rounding appears smooth */
+    margin-top: 20px; /* Space above the table */
+}
+
+th, td {
+    border: 1px solid #e0c97f; /* Darker yellow for borders */
+    padding: 10px;
+    text-align: left;
+    background-color: #fff8dc; /* Light beige background for table cells */
+    
+}
+
+th {
+    background-color: #ffeaa7; /* Header background color */
+    color: #333; /* Dark text for readability */
+}
+
+/* Button styling */
+button, .btn {
+    background-color: #bfecf8; /* Light blue for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+button:hover, .btn:hover {
+    background-color: #0984e3; /* Darker blue on hover */
+    transform: scale(1.1); /* Slightly enlarge the icon */
+}
+
+button i.fas.fa-times {
+    color: #e74c3c;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+button i.fas.fa-times:hover {
+    color: #ff7675;
+    transform: scale(1.1);
+}
+
+button i.fas.fa-check {
+    color: #77DD77; 
+    transition: transform 0.3s ease;
+}
+
+button i.fas.fa-check:hover {
+    color:#27ae60;
+    transform: scale(1.1);
+}
+
+#deletebutton{
+    background: none; 
+    border: none; 
+    cursor: pointer;
+}
+
+#completebutton{
+    background: none; 
+    border: none; 
+    color: #77DD77; 
+    cursor: pointer;
+}
+
+/* Flash messages */
+.flashes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.flashes li {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.add-icon {
+    width: 30px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.add-icon:hover {
+    
+    transform: scale(2); /* Slightly enlarge the icon */
+}
+
+
+/* Ensure the body and HTML take up the full viewport height */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* Main content takes up the available space */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Footer styling */
+footer.footer {
+    height: 70px;
+    background-color: #00575f;
+    color: #bfecf8;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+footer p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Filter options styling */
+.filter-options {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.filter-options button {
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    background-color: #00575f !important;
+}
+
+/* Dropdown menu */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Show dropdown on hover */
+.filter-options:hover .dropdown-content {
+    display: block;
+}
+
+.assessment-link {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    color:#00575f;
+    text-shadow: 0 0 10px #e0c97f;
+    
+  }
+  
+  .assessment-link::before,
+  .assessment-link::after {
+   content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    
+  }
+  .assessment-link::before {
+    
+    background-color: #00575f;
+    height: 0px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .assessment-link::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #00575f;
+    text-shadow: 0 0 5px #bfecf8;
+  }
+  
+  .assessment-link:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+  }
+  .assessment-link:hover::after {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .assessment-link span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  
+  .assessment-link:hover span {
+    transform: translate3d(-200%, 0, 0);
+  }

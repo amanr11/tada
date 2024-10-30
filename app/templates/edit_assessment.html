@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Assessment</h1>
+<form method="POST" onsubmit="return validateForm()">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(size=32, id="title", maxlength=35) }}<br>
+        {% for error in form.title.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.module_code.label }}<br>
+        {{ form.module_code(size=10, id="module_code", maxlength=10) }}<br>
+        {% for error in form.module_code.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.deadline_date.label }}<br>
+        {{ form.deadline_date(id="deadline_date") }}<br>
+        {% for error in form.deadline_date.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.description.label }}<br>
+        {{ form.description(cols=30, rows=5, id="description") }}<br>
+    </p>
+    <p>
+        {{ form.is_complete.label }} {{ form.is_complete(id="is_complete") }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+<a href="{{ url_for('main.index') }}">Back to Assessment List</a>
+
+<script>
+function validateForm() {
+    const title = document.getElementById("title").value;
+    const moduleCode = document.getElementById("module_code").value;
+    const deadlineDate = document.getElementById("deadline_date").value;
+
+    if (!title) {
+        alert("Title is required.");
+        return false;
+    }
+    if (!moduleCode) {
+        alert("Module code is required.");
+        return false;
+    }
+    if (!deadlineDate) {
+        alert("Deadline date is required.");
+        return false;
+    }
+    return true;
+}
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ta-da! Assessment Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="todo-header">
+            <img src="{{ url_for('static', filename='img/ta-da!_logo_green_nobg.png') }}" height="200px" alt="Logo" />
+            <h2>assessment tracker</h2>
+        </div>
+
+        <div class="todo-body">
+            <form id="add-assessment-form" onsubmit="submitInput(event);">
+                <input type="text" id="todoText" class="todo-input" maxlength=35 placeholder="enter assessment title. press enter to add details" />
+            </form>
+            <img src="{{ url_for('static', filename='img/bubbly.png') }}" alt="+" id="AddUpdateClick" 
+                     onclick="redirectToAddAssessment();" class="add-icon" />
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <div class="flashes">
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <main>
+            {% block content %}{% endblock %}
+
+            <!-- Assessment Table and Filter Options Block -->
+            {% block assessments_table %}
+            {% endblock %}
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 ta-da! assessment tracker</p>
+    </footer>
+  
+    <script>
+        // assigning the url
+        const addAssessmentUrl = "{{ url_for('main.add_assessment') }}";
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
