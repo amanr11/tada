@@ -35,6 +35,12 @@ def add_assessment():
         form.title.data = title  # Pre-fill the title field
     
     if form.validate_on_submit():
+        title = form.title.data
+        existing_assessment = Assessment.query.filter_by(title=title).first()
+        if existing_assessment:
+            flash('this title already exists. please choose a different title.', 'danger')
+            return redirect(url_for('main.add_assessment'))  # Redirect back to the form
+
         new_assessment = Assessment(
             title=form.title.data,
             module_code=form.module_code.data,

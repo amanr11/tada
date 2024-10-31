@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 flashes.style.display = 'none';
             }, 500);
-        }, 2000);
+        }, 5000);
     }
 });
 
@@ -51,18 +51,30 @@ function validateForm() {
     const title = document.getElementById("title").value;
     const moduleCode = document.getElementById("module_code").value;
     const deadlineDate = document.getElementById("deadline_date").value;
+    const description = document.getElementById("description").value;
+
+    const validCharsRegex = /^[A-Za-z0-9\s.,'"]+$/; // Allow letters, numbers, spaces, and basic punctuation
 
     if (!title) {
         alert("Title is required.");
         return false;
     }
+    if (!validCharsRegex.test(title)) {
+        alert("title contains invalid characters");
+        return false;
+    }
     if (!moduleCode) {
-        alert("Module code is required.");
+        alert("module code is required.");
+        return false;
+    }
+    if (!validCharsRegex.test(moduleCode)) {
+        alert("module code contains invalid characters");
         return false;
     }
     if (!deadlineDate) {
-        alert("Deadline date is required.");
+        alert("deadline date is required");
         return false;
     }
     return true;
 }
+
