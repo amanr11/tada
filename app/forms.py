@@ -25,7 +25,6 @@ class AssessmentForm(FlaskForm):
         if deadline_date.data <= date.today():
             raise ValidationError('Deadline must be a future date.')
     
-    # Optional: You could add a custom validator for duplicate titles if needed
     def validate_title(self, title):
         existing_assessment = Assessment.query.filter_by(title=title.data).first()
         if existing_assessment:

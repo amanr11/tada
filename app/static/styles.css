@@ -6,30 +6,31 @@
 
 @font-face {
     font-family: "GulfsDisplay";
-    src: url('/static/fonts/GulfsDisplay-Normal.woff2') format('woff2'); /* Use correct format */
+    src: url('/static/fonts/GulfsDisplay-Normal.woff2') format('woff2'); 
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: "Gulfs Display Semi Expanded";
-    src: url('/static/fonts/GulfsDisplay-SemiExpanded.woff2') format('woff2'); /* Use correct format */
+    src: url('/static/fonts/GulfsDisplay-SemiExpanded.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "GulfsDisplayNormalVar";
-    src: url('/static/fonts/GulfsDisplay-Variable.woff2') format('woff2'); /* Use correct format */
+    src: url('/static/fonts/GulfsDisplay-Variable.woff2') format('woff2'); 
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "SansBlack";
-    src: url('/static/fonts/SansBlack.ttf') format('ttf'); /* Use correct format */
+    src: url('/static/fonts/SansBlack.ttf') format('ttf'); 
     font-weight: normal;
     font-style: normal;
 }
+
 /* colors used:
 pastel yellow: #ffeaa7
 dark yellow: #e0c97f
@@ -39,20 +40,17 @@ pastel green (tick): #77DD77
 pastel red (cross): #e74c3c
 
 
-
-
-/* General styling */
+/* general styling */
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #ffeaa7; /* Updated to light pastel yellow */
+    background-color: #ffeaa7; 
     color: #00575f; 
     margin: 0;
     padding: 0;
 }
 
-/* Applying the font to all header elements */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Kirang Haerang", system-ui;
     font-weight: 800;
@@ -85,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 .container {
     max-width: 800px;
     margin: auto;
-    background-color: #ffeaa7; /* Updated to light pastel yellow */
+    background-color: #ffeaa7; 
     color: #00575f;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -118,18 +116,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .todo-input {
     background-color: #fffaeb;
-    width: 500px; /* Adjust as needed */
-    height: 20px; /* Adjust as needed */
-    transition: width 0.3s ease, height 0.3s ease; /* Smooth transition if resizing */
+    width: 500px;   
+    height: 20px;   
+    transition: width 0.3s ease, height 0.3s ease;  
     padding: 10px;
     border: 3px solid #00575f;
     border-radius: 30px;
     font-size: 1em;
-    transition: all 0.3s ease; /* Smooth transition */
+    transition: all 0.3s ease;  
     box-shadow: 0px 5px 5px #bfecf8
 }
 
-/* Placeholder styling */
 .todo-input::placeholder {
     padding-left: 5px;
     font-family: "Lato", sans-serif;
@@ -153,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .todo-input:hover {
-    transform: scale(1.1); /* Slightly enlarge the icon */
+    transform: scale(1.1);  
     
    
   box-shadow: 0px 10px 10px #bfecf8;
@@ -175,13 +172,13 @@ form {
     padding: 0;
 }
 
-/* Task list styling */
+/* task list styling */
 table {
     width: 100%;
-    border-collapse: collapse; /* Allows rounding the edges */
-    border-radius: 5px; /* Adjust as needed for desired rounding */
-    overflow: hidden; /* Clips any overflow, so rounding appears smooth */
-    margin-top: 20px; /* Space above the table */
+    border-collapse: collapse;  
+    border-radius: 5px;  
+    overflow: hidden; 
+    margin-top: 20px;  
     margin-bottom: 70px;
 }
 
@@ -217,9 +214,10 @@ th {
     
 }
 
-/* Button styling */
+
+/* general button styling */
 button, .btn {
-    background-color: #e0c97f; /* Light blue for buttons */
+    background-color: #e0c97f;  
     color: #00575f;
     border: none;
     border-radius: 15px;
@@ -228,12 +226,12 @@ button, .btn {
     font-family:"Kirang Haerang", system-ui  ;
     font-weight: normal;
     font-size: 18px;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+    transition: transform 0.3s ease, opacity 0.3s ease;  
 }
 
 button:hover, .btn:hover {
-    background-color: #bfecf8; /* Darker blue on hover */
-    transform: scale(1.1); /* Slightly enlarge the icon */
+    background-color: #bfecf8;  
+    transform: scale(1.1);  
 }
 
 button i.fas.fa-times {
@@ -270,7 +268,8 @@ button i.fas.fa-check:hover {
     cursor: pointer;
 }
 
-/* Flash messages */
+
+/* flash messages styling*/
 .flashes {
     position: fixed;
     top: 0;
@@ -306,10 +305,10 @@ button i.fas.fa-check:hover {
 }
 
 .add-icon {
-    width: 30px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
-    cursor: pointer; /* Change cursor to pointer */
+    width: 30px;  
+    height: auto;  
+    transition: transform 0.3s ease, opacity 0.3s ease;  
+    cursor: pointer;  
 }
 
 .add-icon:hover {
@@ -321,8 +320,7 @@ button i.fas.fa-check:hover {
     width: 185px;
     align-self:last baseline;
 }
-
-/* Ensure the body and HTML take up the full viewport height */
+ 
 html, body {
     height: 100%;
     display: flex;
@@ -330,13 +328,14 @@ html, body {
     margin: 0;
 }
 
-/* Main content takes up the available space */
+ 
 main {
     flex: 1;
     padding: 20px;
 }
 
-/* Footer styling */
+
+/* footer styling */
 footer.footer {
     height: 70px;
     background-color: #00575f;
@@ -357,7 +356,7 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px; /* Adds space below the header */
+    margin-bottom: 20px;  
 }
 
 .header-flex h1 {
@@ -365,8 +364,8 @@ footer p {
     margin: 0;
 }
 
-/* Filter options styling */
 
+/* filter options styling */
 
 .filter-options {
     display: flex;
@@ -386,13 +385,13 @@ footer p {
 }
 
 
-/* Dropdown menu */
+/* dropdown menu */
 .dropdown {
-    position: relative; /* Parent of the dropdown */
+    position: relative;  
 }
 
 .dropdown-content {
-    display: none; /* Hidden by default */
+    display: none;  
     position: absolute;
     top: 100%;
     right: 0;
@@ -419,7 +418,6 @@ footer p {
     border-radius: 10px;
 }
 
-/* Show dropdown on hover */
 .filter-options:hover .dropdown-content {
     display: block;
 }
@@ -443,12 +441,11 @@ footer p {
     
   }
 
-  /* Container for the form */
 .form-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #e0c97f; /* Light pastel background */
+    background-color: #e0c97f;  
     border-radius: 30px;
     box-shadow: 0px 0px 10px #00575f;
     position: relative;
@@ -458,8 +455,8 @@ footer p {
     position: absolute;
     top: 10px;
     left: 20px;
-    font-size: 25px; /* Adjust size as needed */
-    color: #00575f; /* Adjust color to match theme */
+    font-size: 25px;  
+    color: #00575f; 
     text-decoration: none;
     transition: transform 0.3s ease;
 }
@@ -469,7 +466,7 @@ footer p {
     text-shadow: 0px 0px 5px #bfecf8;
     transform: scale(1.05);
 }
-/* Form Header */
+
 .form-header {
     text-align: center;
     font-family: "Kirang Haerang", sans-serif;
@@ -479,7 +476,7 @@ footer p {
     text-shadow: 0px 0px 2px #ffeaa7;
 }
 
-/* Labels */
+ 
 .assessment-form label {
     font-family: "Kirang Haerang", sans-serif;
     color: #00575f;
@@ -497,7 +494,7 @@ footer p {
    
 }
 
-/* Input Fields */
+ 
 .assessment-form input[type="text"], .assessment-form input[type="date"], .assessment-form textarea {
     width: 94%;
     padding: 12px;
@@ -513,17 +510,16 @@ footer p {
 }
 
 .assessment-form input[type="text"]:hover, .assessment-form input[type="date"]:hover, .assessment-form textarea:hover {
-    box-shadow: 0 0 15px #ffeaa7; /* Light blue shadow on hover */
+    box-shadow: 0 0 15px #ffeaa7;  
 }
 
-/* Placeholder styling */
+ 
 .assessment-form input::placeholder, .assessment-form textarea::placeholder {
     color: #e0c97f;
     font-weight: 300;
     font-family: "Lato";
 }
 
-/* Button styling */
 .submit-button {
     width: 100%;
     padding: 10px 0;
@@ -538,18 +534,18 @@ footer p {
 }
 
 .submit-button:hover {
-    background-color: #bfecf8; /* Change to blue on hover */
-    transform: scale(1.05); /* Slight zoom */
+    background-color: #bfecf8; 
+    transform: scale(1.05);  
     box-shadow: 0 0 10px #ffeaa7;
 }
 
-/* Custom Checkbox Styling */
+ 
 .form-container input[type="checkbox"] {
-    appearance: none; /* Hide default checkbox */
+    appearance: none;  
     width: 20px;
     height: 20px;
-    background-color: #ffeaa7; /* Pastel background */
-    border: 2px solid #00575f; /* Darker yellow border */
+    background-color: #ffeaa7;  
+    border: 2px solid #00575f;  
     border-radius: 4px;
     cursor: pointer;
     position: absolute;
@@ -559,9 +555,9 @@ footer p {
 
 }
 
-/* Checkbox checked state with green tick */
+ 
 .form-container input[type="checkbox"]:checked {
-    background-color: #77DD77; /* Pastel green */
+    background-color: #77DD77;  
     background-size: 60% 60%;
     background-repeat: no-repeat;
     background-position: center;
@@ -626,7 +622,7 @@ footer p {
 }
 
 .edit-button-container:hover{
-    background-color: #bfecf8; /* Change to blue on hover */
-    transform: scale(1.05); /* Slight zoom */
+    background-color: #bfecf8; 
+    transform: scale(1.05);  
     box-shadow: 0 0 10px #e0c97f;
 }

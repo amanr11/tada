@@ -9,8 +9,6 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///assessments.db'
 
     db.init_app(app)
-
-    # Import routes here to register them after initializing the app
     from .routes import main
     app.register_blueprint(main)
 
