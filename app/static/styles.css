@@ -80,13 +80,12 @@ h1, h2, h3, h4, h5, h6 {
 .header-flex h1{
     font-size: 35px !important;
 }
+
 .container {
     max-width: 800px;
     margin: auto;
     background-color: #ffeaa7; /* Updated to light pastel yellow */
     color: #00575f;
-    border: 2px solid #e0c97f; /* Darker yellow for the border */
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
 }
@@ -103,9 +102,6 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.3s ease;
 }
 
-.todo-header img:hover {
-    transform: scale(1.2);
-}
 
 
 /* Body */
@@ -378,7 +374,7 @@ footer p {
 .filter-options button {
     color: white;
     border: none;
-    padding: 8px;
+    padding: 7px 7px 5px 7px;
     cursor: pointer;
     font-size: 12px;
     background-color: #00575f !important;
@@ -430,50 +426,203 @@ footer p {
     display: inline-block;
     color:#00575f;
     text-shadow: 0 0 10px #e0c97f;
-    
+    text-decoration: none;
+ 
   }
   
-  .assessment-link::before,
-  .assessment-link::after {
-   content: '';
-    position: absolute;
-    width: 100%;
-    left: 0;
-    
-  }
-  .assessment-link::before {
-    
-    background-color: #00575f;
-    height: 0px;
-    bottom: 0;
-    transform-origin: 100% 50%;
-    transform: scaleX(0);
-    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
-  }
-  .assessment-link::after {
-    content: attr(data-replace);
-    height: 100%;
-    top: 0;
-    transform-origin: 100% 50%;
-    transform: translate3d(200%, 0, 0);
-    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
-    color: #00575f;
-    text-shadow: 0 0 5px #bfecf8;
-  }
-  
-  .assessment-link:hover::before {
-    transform-origin: 0% 50%;
-    transform: scaleX(1);
-  }
-  .assessment-link:hover::after {
-    transform: translate3d(0, 0, 0);
-  }
-  
-  .assessment-link span {
+.assessment-link:hover {
+    overflow: hidden;
+    position: relative;
     display: inline-block;
-    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color:#00575f;
+    text-shadow: 0 0 10px #bfecf8;
+    
   }
-  
-  .assessment-link:hover span {
-    transform: translate3d(-200%, 0, 0);
-  }
+
+  /* Container for the form */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e0c97f; /* Light pastel background */
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px #00575f;
+    position: relative;
+    
+}
+.back-arrow {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 25px; /* Adjust size as needed */
+    color: #00575f; /* Adjust color to match theme */
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.back-arrow:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 5px #bfecf8;
+    transform: scale(1.05);
+}
+/* Form Header */
+.form-header {
+    text-align: center;
+    font-family: "Kirang Haerang", sans-serif;
+    color: #00575f;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    text-shadow: 0px 0px 2px #ffeaa7;
+}
+
+/* Labels */
+.assessment-form label {
+    font-family: "Kirang Haerang", sans-serif;
+    color: #00575f;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+#comp{
+    font-family: "Kirang Haerang", sans-serif;
+    color: #00575f;
+    font-weight: bold;
+    font-size: 1.3em;
+   
+}
+
+/* Input Fields */
+.assessment-form input[type="text"], .assessment-form input[type="date"], .assessment-form textarea {
+    width: 94%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #00575f;
+    border-radius: 8px;
+    background-color: #ffeaa7;
+    font-family: "Lato", sans-serif !important;
+    font-size: 1em;
+    color: #00575f;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.assessment-form input[type="text"]:hover, .assessment-form input[type="date"]:hover, .assessment-form textarea:hover {
+    box-shadow: 0 0 15px #ffeaa7; /* Light blue shadow on hover */
+}
+
+/* Placeholder styling */
+.assessment-form input::placeholder, .assessment-form textarea::placeholder {
+    color: #e0c97f;
+    font-weight: 300;
+    font-family: "Lato";
+}
+
+/* Button styling */
+.submit-button {
+    width: 100%;
+    padding: 10px 0;
+    font-family: "Kirang Haerang", sans-serif;
+    background-color: #ffeaa7;
+    color: #00575f;
+    font-size: 1.6em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #bfecf8; /* Change to blue on hover */
+    transform: scale(1.05); /* Slight zoom */
+    box-shadow: 0 0 10px #ffeaa7;
+}
+
+/* Custom Checkbox Styling */
+.form-container input[type="checkbox"] {
+    appearance: none; /* Hide default checkbox */
+    width: 20px;
+    height: 20px;
+    background-color: #ffeaa7; /* Pastel background */
+    border: 2px solid #00575f; /* Darker yellow border */
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    padding-bottom: 0;
+    margin-left: 10px;
+    
+
+}
+
+/* Checkbox checked state with green tick */
+.form-container input[type="checkbox"]:checked {
+    background-color: #77DD77; /* Pastel green */
+    background-size: 60% 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.assessment-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffeaa7; 
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px #e0c97f;
+    position: relative;
+}
+
+.assessment-title {
+    text-align: center;
+    font-family: "Kirang Haerang", sans-serif;
+    color: #333;
+    font-size: 2.7em;
+    margin-bottom: 15px;
+    text-shadow: 0px 0px 2px #ffeaa7;
+}
+
+.detail-section {
+    margin-top: 20px;
+}
+
+.detail-title {
+    font-size: 25px;
+    color: #00575f;
+}
+
+.detail-content {
+    font-size: 16px;
+    color: black;
+}
+
+.edit-button-container {
+    text-align: center;
+    
+    max-width: 600px;
+    margin-top: 30px !important;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #e0c97f; 
+    
+    position: relative;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.edit-button {
+    text-decoration: none;
+    width: 100%;
+    padding: 10px 0;
+    font-family: "Kirang Haerang", sans-serif;
+    color: #00575f;
+    font-size: 1.6em;
+}
+
+.edit-button-container:hover{
+    background-color: #bfecf8; /* Change to blue on hover */
+    transform: scale(1.05); /* Slight zoom */
+    box-shadow: 0 0 10px #e0c97f;
+}

@@ -1,11 +1,4 @@
-function openModal() {
-    document.getElementById("addAssessmentModal").style.display = "block";
-}
-
-function closeModal() {
-    document.getElementById("addAssessmentModal").style.display = "none";
-}
-
+//flashes
 document.addEventListener("DOMContentLoaded", function() {
     const flashes = document.querySelector('.flashes');
     if (flashes) {
@@ -14,22 +7,25 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 flashes.style.display = 'none';
             }, 500);
-        }, 500);
+        }, 2000);
     }
 });
 
+//homepage assessment add
 function redirectToAddAssessment() {
     const title = document.getElementById("todoText").value;
-    const url = addAssessmentUrl; // Use the URL variable from the top script
-    console.log(url); // Debugging line to check the URL
+    const url = addAssessmentUrl; // Use the url variable from the program
+    console.log(url); // Debugging line to check the url
     window.location.href = `${url}?title=${encodeURIComponent(title)}`;
 }
 
+
+//filter dropdown menu
 function toggleDropdown() {
     document.getElementById("dropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+
 window.onclick = function(event) {
     if (!event.target.matches('.filter-options button')) {
         const dropdowns = document.getElementsByClassName("dropdown-content");
@@ -42,7 +38,7 @@ window.onclick = function(event) {
     }
 }
 
-// Function to submit the form on Enter key press
+//enabling enter key as input
 document.getElementById("todoText").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();  // Prevent the default form submission
@@ -50,6 +46,7 @@ document.getElementById("todoText").addEventListener("keydown", function(event) 
     }
 });
 
+//form validation
 function validateForm() {
     const title = document.getElementById("title").value;
     const moduleCode = document.getElementById("module_code").value;

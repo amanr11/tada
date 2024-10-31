@@ -9,6 +9,7 @@
         <button onclick="toggleDropdown()"><i class="fas fa-filter"></i></button>
         <div class="dropdown">
             <div class="dropdown-content">
+            <a href="{{ url_for('main.index') }}">view all</a>
             <a href="{{ url_for('main.view_completed_assessments') }}">view completed</a>
             <a href="{{ url_for('main.view_uncompleted_assessments') }}">view pending</a>
         </div>
@@ -23,7 +24,7 @@
             <tr>
                 <th id="tableicon"></th>
                 <th id="title">title</th>
-                <th>due</th>
+                <th>due <span>&#8595;</span></th>
                 <th>status</th>
                 <th>actions</th>
                 <th id="tableicon"></th> 
@@ -40,7 +41,7 @@
                     </form>
                 </td>
                 <td id="title">
-                    <a href="{{ url_for('main.view_assessment', assessment_id=assessment.id) }}" class="assessment-link" data-replace="{{ assessment.title }}">
+                    <a href="{{ url_for('main.view_assessment', assessment_id=assessment.id) }}" class="assessment-link">
                         <span>{{ assessment.title }}</span>
                     </a> 
                 </td>

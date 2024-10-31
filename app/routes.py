@@ -9,7 +9,7 @@ main = Blueprint('main', __name__)
 # Route for homepage to view all assessments
 @main.route('/')
 def index():
-    assessments = Assessment.query.all()
+    assessments = Assessment.query.order_by(Assessment.deadline_date.asc()).all()
     form = AssessmentForm()  # Create an instance of your form
     return render_template('index.html', assessments=assessments, form=form)
 
@@ -44,7 +44,7 @@ def add_assessment():
         )
         db.session.add(new_assessment)
         db.session.commit()
-        flash('Assessment added successfully!', 'success')  # Flash message
+        flash('assessment added successfully!', 'success')  # Flash message
         return redirect(url_for('main.index'))
     
     return render_template('add_assessment.html', form=form)
@@ -61,7 +61,7 @@ def edit_assessment(assessment_id):
         assessment.description = form.description.data
         assessment.is_complete = form.is_complete.data
         db.session.commit()
-        flash('Assessment updated successfully!', 'success')  # Flash message
+        flash('assessment updated successfully!', 'success')  # Flash message
         return redirect(url_for('main.index'))
     return render_template('edit_assessment.html', form=form, assessment=assessment)
 
@@ -70,7 +70,7 @@ def delete_assessment(assessment_id):
     assessment = Assessment.query.get_or_404(assessment_id)
     db.session.delete(assessment)
     db.session.commit()
-    flash('Assessment deleted successfully!', 'danger')  # Flash message
+    flash('assessment deleted successfully!', 'danger')  # Flash message
     return redirect(url_for('main.index'))
 
 #Route to mark an assesment as complete
@@ -102,6 +102,6 @@ def add_assessment_from_homepage():
         )
         db.session.add(new_assessment)
         db.session.commit()
-        flash('Assessment added successfully!', 'success')
+        flash('assessment added successfully!', 'success')
         return redirect(url_for('main.index'))
     return redirect(url_for('main.index'))

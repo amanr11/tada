@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ta-da! Assessment Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"> <!-- for icons used-->
 </head>
 <body>
 
     <div class="container">
         <div class="todo-header">
             <a href="{{ url_for('main.index') }}" >
-            <img src="{{ url_for('static', filename='img/ta-da!_logo_green_nobg_cropped.png') }}" height="200px" alt="Logo" />
+            <img src="{{ url_for('static', filename='img/ta-da!_logo_green_nobg_cropped.png') }}" height="200px" alt="Logo" /><!--logo self designed-->
             </a>
             <h2>assessment tracker</h2>
         </div>
@@ -21,8 +21,7 @@
             <form id="add-assessment-form" onsubmit="submitInput(event);">
                 <input type="text" id="todoText" class="todo-input" maxlength=35 placeholder="enter assessment title. click the + icon or press enter to add details" />
             </form>
-            <img src="{{ url_for('static', filename='img/bubbly.png') }}" alt="+" id="AddUpdateClick" 
-                     onclick="redirectToAddAssessment();" class="add-icon" />
+            <img src="{{ url_for('static', filename='img/bubbly.png') }}" alt="+" id="AddUpdateClick" onclick="redirectToAddAssessment();" class="add-icon" /> <!--image from "https://www.freeiconspng.com/img/13070"-->
         </div>
 
         {% with messages = get_flashed_messages(with_categories=True) %}
@@ -48,7 +47,7 @@
 
     <footer class="footer">
         
-        <img src="{{ url_for('static', filename='img/ta-da!_logo_green_nobg_cropped.png') }}" height="200px" alt="Logo" id="footerlogo" />
+        <img src="{{ url_for('static', filename='img/ta-da!_logo_green_nobg_cropped.png') }}" height="200px" alt="Logo" id="footerlogo" /> <!--logo self designed-->
         <p>&copy;</p>
     </footer>
   
