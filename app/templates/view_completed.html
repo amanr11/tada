@@ -1,23 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>assessments aced</h1>
+<div class="header-flex">
+    <h1>assessments aced ;)</h1>
 
-<!-- Filter Options -->
-<div class="filter-options">
-    <button onclick="toggleDropdown()"><i class="fas fa-filter"></i> </button>
-    <div id="dropdown" class="dropdown-content">
-        <a href="{{ url_for('main.index') }}">view all assessments</a>
-        <a href="{{ url_for('main.view_uncompleted_assessments') }}">view uncompleted</a>
+    <!-- Filter Options -->
+    <div class="filter-options">
+        <button onclick="toggleDropdown()"><i class="fas fa-filter"></i></button>
+        <div class="dropdown">
+            <div class="dropdown-content">
+            <a href="{{ url_for('main.index') }}">view all</a>
+            <a href="{{ url_for('main.view_uncompleted_assessments') }}">view pending</a>
+        </div>
+        </div>
     </div>
 </div>
+
 
 {% if assessments %}
     <table>
         <thead>
             <tr>
                 <th></th>
-                <th>title</th>
+                <th id="title">title</th>
                 <th>due</th>
                 <th>status</th>
                 <th>actions</th> 
@@ -33,17 +38,17 @@
                         </button>
                     </form>
                 </td>
-                <td>
+                <td id="title">
                     <a href="{{ url_for('main.view_assessment', assessment_id=assessment.id) }}" class="assessment-link" data-replace="{{ assessment.title }}">
                         <span>{{ assessment.title }}</span>
                     </a>
                 </td>
-                <td>{{ assessment.deadline_date.strftime('%d/%m/%Y') }}</td>
+                <td id="dd">{{ assessment.deadline_date.strftime('%d/%m/%Y') }}</td>
                 <td>
                     {% if assessment.is_complete %}
                         <span class="success">complete</span>
                     {% else %}
-                        <span class="danger">uncompleted</span>
+                        <span class="danger">pending</span>
                     {% endif %}
                 </td>
                 <td>

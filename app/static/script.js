@@ -50,3 +50,22 @@ document.getElementById("todoText").addEventListener("keydown", function(event) 
     }
 });
 
+function validateForm() {
+    const title = document.getElementById("title").value;
+    const moduleCode = document.getElementById("module_code").value;
+    const deadlineDate = document.getElementById("deadline_date").value;
+
+    if (!title) {
+        alert("Title is required.");
+        return false;
+    }
+    if (!moduleCode) {
+        alert("Module code is required.");
+        return false;
+    }
+    if (!deadlineDate) {
+        alert("Deadline date is required.");
+        return false;
+    }
+    return true;
+}

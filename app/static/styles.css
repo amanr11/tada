@@ -1,8 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kirang+Haerang&family=Lilita+One&display=swap');
 
+@font-face {
+    font-family: "GulfsDisplay";
+    src: url('/static/fonts/GulfsDisplay-Normal.woff2') format('woff2'); /* Use correct format */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Gulfs Display Semi Expanded";
+    src: url('/static/fonts/GulfsDisplay-SemiExpanded.woff2') format('woff2'); /* Use correct format */
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: "GulfsDisplayNormalVar";
+    src: url('/static/fonts/GulfsDisplay-Variable.woff2') format('woff2'); /* Use correct format */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SansBlack";
+    src: url('/static/fonts/SansBlack.ttf') format('ttf'); /* Use correct format */
+    font-weight: normal;
+    font-style: normal;
+}
 /* colors used:
 pastel yellow: #ffeaa7
 dark yellow: #e0c97f
@@ -27,7 +54,9 @@ body {
 
 /* Applying the font to all header elements */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "DM Serif Display", serif; /* Fallback to sans-serif */
+    font-family: "Kirang Haerang", system-ui;
+    font-weight: 800;
+    font-style: normal;
 }
 
 .todo-header h1 {
@@ -38,21 +67,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .todo-header h2 {
+    font-family: "Gulfs Display Semi Expanded" !important;
+    font-weight:400;
     color: #00575f ;
-    font-size: 40px;
+    font-size: 50px;
     padding-top: 0px;
     margin-top: 0px;
     transition: transform 0.3 ease;
+
 }
 
-.todo-header h2:hover {
-    color: #00575f ;
-    font-size: 40px;
-    padding-top: 0px;
-    margin-top: 0px;
-    transform: scale(1.1);
+.header-flex h1{
+    font-size: 35px !important;
 }
-
 .container {
     max-width: 800px;
     margin: auto;
@@ -90,24 +117,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .todo-input {
+    background-color: #fffaeb;
     width: 500px; /* Adjust as needed */
     height: 20px; /* Adjust as needed */
     transition: width 0.3s ease, height 0.3s ease; /* Smooth transition if resizing */
     padding: 10px;
-    border: 5px solid #bfecf8;
-    border-radius: 20px;
+    border: 3px solid #00575f;
+    border-radius: 30px;
     font-size: 1em;
     transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0px 5px 5px #bfecf8
 }
 
 /* Placeholder styling */
 .todo-input::placeholder {
+    padding-left: 5px;
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #00575f; /* Adjust color as needed */
-    font-size: 16px; /* Adjust size as needed */
-    opacity: 1; /* Ensures full opacity */
+    color: #00575f; 
+    font-size: 16px; 
+    opacity: 1; 
 }
 
 .todo-input::before{
@@ -126,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1); /* Slightly enlarge the icon */
     
    
-  box-shadow: 0px 5px 5px #bfecf8;
+  box-shadow: 0px 10px 10px #bfecf8;
   text-shadow: 0 0 10px #ffeaa7;
   
 }
@@ -152,35 +182,57 @@ table {
     border-radius: 5px; /* Adjust as needed for desired rounding */
     overflow: hidden; /* Clips any overflow, so rounding appears smooth */
     margin-top: 20px; /* Space above the table */
+    margin-bottom: 70px;
+}
+
+#tableicon{
+    padding: 5px;
 }
 
 th, td {
-    border: 1px solid #e0c97f; /* Darker yellow for borders */
-    padding: 10px;
-    text-align: left;
-    background-color: #fff8dc; /* Light beige background for table cells */
+    border: 1px solid #e0c97f; 
+    padding: 15px;
+    text-align: center;
+    background-color: #ffeaa7; 
     
 }
 
 th {
-    background-color: #ffeaa7; /* Header background color */
-    color: #333; /* Dark text for readability */
+    background-color: #e0c97f;
+    color: #00575f;
+    font-size: 25px;
+    font-family: "Kirang Haerang", system-ui !important;
+    text-shadow: 0px 0px 2px #ffeaa7;
+}
+
+#dd{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#title{
+    text-align: left;
+    font-family: "Lilita One", sans-serif;
+    
 }
 
 /* Button styling */
 button, .btn {
-    background-color: #bfecf8; /* Light blue for buttons */
-    color: white;
+    background-color: #e0c97f; /* Light blue for buttons */
+    color: #00575f;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px 10px;
     cursor: pointer;
-    font-weight: bold;
+    font-family:"Kirang Haerang", system-ui  ;
+    font-weight: normal;
+    font-size: 18px;
     transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
 }
 
 button:hover, .btn:hover {
-    background-color: #0984e3; /* Darker blue on hover */
+    background-color: #bfecf8; /* Darker blue on hover */
     transform: scale(1.1); /* Slightly enlarge the icon */
 }
 
@@ -235,15 +287,22 @@ button i.fas.fa-check:hover {
 }
 
 .success {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
+    color: #77DD77;
+    font-family: "Overpass", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+   
+    
 }
 
 .danger {
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
+    color: #e74c3c;
+    font-family: "Overpass", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+   
 }
 
 .add-icon {
@@ -254,10 +313,14 @@ button i.fas.fa-check:hover {
 }
 
 .add-icon:hover {
-    
-    transform: scale(2); /* Slightly enlarge the icon */
+    transform: scale(2); 
 }
 
+#footerlogo{
+    height: 111px;
+    width: 185px;
+    align-self:last baseline;
+}
 
 /* Ensure the body and HTML take up the full viewport height */
 html, body {
@@ -290,45 +353,69 @@ footer p {
     text-align: center;
 }
 
-/* Filter options styling */
-.filter-options {
-    position: relative;
+.header-flex {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Adds space below the header */
+}
+
+.header-flex h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+/* Filter options styling */
+
+
+.filter-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
 }
 
 .filter-options button {
     color: white;
     border: none;
-    padding: 10px;
+    padding: 8px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 12px;
     background-color: #00575f !important;
+    border-radius: 10px;
 }
 
+
 /* Dropdown menu */
+.dropdown {
+    position: relative; /* Parent of the dropdown */
+}
+
 .dropdown-content {
     display: none; /* Hidden by default */
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #f9f9f9;
+    background-color: #ffeaa7;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 10px;
+    
 }
 
 .dropdown-content a {
-    color: black;
+    color: rgb(68, 68, 68);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-family: "Lilita One", sans-serif;
+    font-weight: lighter;
+    font-style: normal;
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #e0c97f;
     border-radius: 10px;
 }
 
